@@ -19,7 +19,16 @@ public class funciones {
     }
 
     public String getNombre() {
-        return Nombre;
+        String[] parts = Nombre.split("_");
+        String camelCaseString = "";
+        for (String part : parts){
+            camelCaseString = camelCaseString + toProperCase(part);
+        }
+        return camelCaseString;
+    }
+    static String toProperCase(String s) {
+        return s.substring(0, 1).toUpperCase() +
+                s.substring(1).toLowerCase();
     }
 
     public void setNombre(String Nombre) {
@@ -60,13 +69,16 @@ public class funciones {
 
     public String compararPeso() {
         if (pesoActual == pesoIdeal) {
-            EstadoPeso = "peso ideal";
-        } else {
-            if (pesoActual < pesoIdeal) {
-                EstadoPeso = "bajo peso";
-            } else {
-                EstadoPeso = "sobre peso";
-            }
+            EstadoPeso = "el ideal";
+        }
+        else if(pesoActual < pesoIdeal) {
+            EstadoPeso = "bajo peso, se recomienda dieta";
+        }
+        else if(pesoActual > pesoIdeal) {
+                EstadoPeso = "sobre peso, se recomienda dieta y ejercicio";
+        }
+        else{
+            return "error";
         }
         return EstadoPeso;
     }

@@ -24,13 +24,13 @@ public class ResultadoActivity extends AppCompatActivity {
         String nombreRecibido = datosRecibidos.getString("p_nombre");
         int pesoActualRecibido      = datosRecibidos.getInt("p_pesoActual");
         //6. Modificamos el TextView de Resultado con lo que corresponda
-        int pesoIdeal           = edadRecibida * 2 +8;
+        //int pesoIdeal           = edadRecibida * 2 +8;
 
         funciones calcular= new funciones(this);
         calcular.setNombre(nombreRecibido);
         calcular.setEdad(edadRecibida);
         calcular.setpesoActual(pesoActualRecibido);
 
-        txvResultado.setText("Peso ideal de "+nombreRecibido+" es: "+ pesoIdeal+ " Su estado de peso es:  "+ calcular.compararPeso());
+        txvResultado.setText(calcular.getNombre()+" tu peso ideal es: "+ calcular.calcularPesoIdeal()+ " y tu estado actual ("+calcular.getpesoActual()+") de peso es: "+ calcular.compararPeso());
     }
 }

@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Con la definición en el archivo de layout.
     EditText edtEdad;
     EditText edtNombre;
+    EditText edtpesoActual;
     TextView txvResultado;
     Button btnCalcular;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         //2.- Asociamos los objetos de la clase con los elementos de la interfaz
         edtEdad         = (EditText) findViewById(R.id.edt_edad);
+        edtpesoActual   = (EditText) findViewById(R.id.edt_pesoActual);
         edtNombre       = (EditText) findViewById(R.id.edt_nombre);
         txvResultado    = (TextView) findViewById(R.id.txv_resultado);
         btnCalcular     = (Button) findViewById(R.id.btn_calcular);
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //4.- Capturamos el valor ingresado en edtEdad
         int edadIngresada   = Integer.parseInt(edtEdad.getText().toString());
         String nombreIngresado = edtNombre.getText().toString();
+        int pesoIngresado   = Integer.parseInt(edtpesoActual.getText().toString());
         /*int pesoIdeal       = edadIngresada * 2 + 8 ;
         txvResultado.setText("El peso ideal es "+pesoIdeal);*/
         //5. Establecemos un intento para abrir un nuevo activity (ResultadoActivity)
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //6. Especificamos los datos que queremos enviar al activity ResultadoActivity.
         intento.putExtra("p_edad",edadIngresada);
         intento.putExtra("p_nombre", nombreIngresado);
+        intento.putExtra("p_pesoActual",pesoIngresado);
         //7. Ejecutamos el activity con startActivity especificando cual es el objeto
         // de la clase Intent que define el destino y los datos a transportar.
         startActivity(intento);

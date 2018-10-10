@@ -7,4 +7,5 @@
     <string name="hnt_edad">Ingrese Edad</string>
     <string name="txt_titulo_resultado">Resultado Peso Ideal</string>
     <string name="hnt_nombre">Ingrese nombre</string>
+    <string name="hnt_peso">Ingrese Peso</string>
 </resources>

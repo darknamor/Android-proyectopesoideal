@@ -8,7 +8,7 @@ import android.widget.TextView;
 public class ResultadoActivity extends AppCompatActivity {
    //1.- Creamos un objeto de la clase TextView
     TextView txvResultado;
-
+    //private funciones calcular;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +22,15 @@ public class ResultadoActivity extends AppCompatActivity {
         //5. Capturamos uno de los datos enviados desde el Activity mediante el intento.
         int edadRecibida        = datosRecibidos.getInt("p_edad");
         String nombreRecibido = datosRecibidos.getString("p_nombre");
+        int pesoActualRecibido      = datosRecibidos.getInt("p_pesoActual");
         //6. Modificamos el TextView de Resultado con lo que corresponda
         int pesoIdeal           = edadRecibida * 2 +8;
-        txvResultado.setText("Peso ideal de "+nombreRecibido+" es: "+ pesoIdeal);
+
+        funciones calcular= new funciones(this);
+        calcular.setNombre(nombreRecibido);
+        calcular.setEdad(edadRecibida);
+        calcular.setpesoActual(pesoActualRecibido);
+
+        txvResultado.setText("Peso ideal de "+nombreRecibido+" es: "+ pesoIdeal+ " Su estado de peso es:  "+ calcular.compararPeso());
     }
 }
